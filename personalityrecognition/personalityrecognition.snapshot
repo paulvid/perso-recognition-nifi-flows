@@ -508,6 +508,13 @@
           "group" : "org.apache.nifi",
           "version" : "1.7.0.3.2.0.0-520"
         },
+        "type" : "org.apache.nifi.dbcp.hive.HiveDBCPService"
+      }, {
+        "bundle" : {
+          "artifact" : "nifi-hive-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "1.7.0.3.2.0.0-520"
+        },
         "type" : "org.apache.nifi.dbcp.hive.Hive3DBCPService"
       }, {
         "bundle" : {
@@ -516,13 +523,6 @@
           "version" : "1.7.0.3.2.0.0-520"
         },
         "type" : "org.apache.nifi.dbcp.DBCPService"
-      }, {
-        "bundle" : {
-          "artifact" : "nifi-hive-services-api-nar",
-          "group" : "org.apache.nifi",
-          "version" : "1.7.0.3.2.0.0-520"
-        },
-        "type" : "org.apache.nifi.dbcp.hive.HiveDBCPService"
       } ],
       "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
       "identifier" : "343b1553-0483-3b6f-9e4f-4ffaeb5002e4",
@@ -1016,7 +1016,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : 1870.315099040707,
-        "y" : 117.0
+        "y" : 115.57200622558594
       },
       "properties" : {
         "URL" : "${web_url}"
@@ -1053,7 +1053,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : 1140.257634823045,
-        "y" : 117.0
+        "y" : 115.57200622558594
       },
       "properties" : {
         "snippet" : "$.response.docs[0].snippet",
@@ -1160,7 +1160,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : 527.0,
-        "y" : 117.0
+        "y" : 115.57200622558594
       },
       "properties" : {
         "use-etag" : "false",
@@ -1465,7 +1465,7 @@
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
-        "Replacement Value" : "upsert into article_evaluation values('${web_url}','${snippet}','${byline}','${pub_date}','${headline}','${document_type}','${news_desk}','${filename}','${now()}','${extraversion}','${emotional_stability}','${agreeableness}','${conscientiousness}','${openness_to_experience}')",
+        "Replacement Value" : "upsert into article_evaluation values('${web_url}','${snippet}','${byline}','${pub_date}','${headline}','${document_type}','${news_desk}','${filename}','${now()}','${mairessepersonalityrecognition.extraversion}','${mairessepersonalityrecognition.emotional_stability}','${mairessepersonalityrecognition.agreeableness}','${mairessepersonalityrecognition.conscientiousness}','${mairessepersonalityrecognition.openness_to_experience}')",
         "Evaluation Mode" : "Entire text",
         "Character Set" : "UTF-8",
         "Maximum Buffer Size" : "1 MB",
