@@ -13,13 +13,13 @@
       "destination" : {
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
-        "id" : "c1b8f35a-e000-34be-8d43-4e6c5fcf767e",
-        "name" : "PutHiveQL",
+        "id" : "b4fdbb0c-b369-39f7-9fd2-aaaee882e4be",
+        "name" : "PutSQL",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
-      "identifier" : "1acd5137-5862-39b1-9ad1-6f020efed320",
+      "identifier" : "d102c4b0-a361-31c8-8254-4dd1329a43f0",
       "labelIndex" : 1,
       "name" : "",
       "prioritizers" : [ ],
@@ -118,6 +118,83 @@
       "zIndex" : 0
     } ],
     "controllerServices" : [ {
+      "bundle" : {
+        "artifact" : "nifi-dbcp-service-nar",
+        "group" : "org.apache.nifi",
+        "version" : "1.7.0.3.2.0.0-520"
+      },
+      "comments" : "",
+      "componentType" : "CONTROLLER_SERVICE",
+      "controllerServiceApis" : [ {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "1.7.0.3.2.0.0-520"
+        },
+        "type" : "org.apache.nifi.dbcp.DBCPService"
+      } ],
+      "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
+      "identifier" : "8c917f61-6e14-3ae6-8628-c2f89ef42800",
+      "name" : "PhoenixConnectionPool",
+      "properties" : {
+        "Database Connection URL" : "jdbc:phoenix:localhost:2181:/hbase-unsecure",
+        "Max Wait Time" : "500 millis",
+        "Database Driver Class Name" : "org.apache.phoenix.jdbc.PhoenixDriver",
+        "database-driver-locations" : "file:///usr/hdp/current/phoenix-client/phoenix-client.jar",
+        "Max Total Connections" : "8"
+      },
+      "propertyDescriptors" : {
+        "Validation-query" : {
+          "displayName" : "Validation query",
+          "identifiesControllerService" : false,
+          "name" : "Validation-query",
+          "sensitive" : false
+        },
+        "Database Connection URL" : {
+          "displayName" : "Database Connection URL",
+          "identifiesControllerService" : false,
+          "name" : "Database Connection URL",
+          "sensitive" : false
+        },
+        "Max Wait Time" : {
+          "displayName" : "Max Wait Time",
+          "identifiesControllerService" : false,
+          "name" : "Max Wait Time",
+          "sensitive" : false
+        },
+        "Database Driver Class Name" : {
+          "displayName" : "Database Driver Class Name",
+          "identifiesControllerService" : false,
+          "name" : "Database Driver Class Name",
+          "sensitive" : false
+        },
+        "Database User" : {
+          "displayName" : "Database User",
+          "identifiesControllerService" : false,
+          "name" : "Database User",
+          "sensitive" : false
+        },
+        "database-driver-locations" : {
+          "displayName" : "Database Driver Location(s)",
+          "identifiesControllerService" : false,
+          "name" : "database-driver-locations",
+          "sensitive" : false
+        },
+        "Max Total Connections" : {
+          "displayName" : "Max Total Connections",
+          "identifiesControllerService" : false,
+          "name" : "Max Total Connections",
+          "sensitive" : false
+        },
+        "Password" : {
+          "displayName" : "Password",
+          "identifiesControllerService" : false,
+          "name" : "Password",
+          "sensitive" : false
+        }
+      },
+      "type" : "org.apache.nifi.dbcp.DBCPConnectionPool"
+    }, {
       "bundle" : {
         "artifact" : "nifi-record-serialization-services-nar",
         "group" : "org.apache.nifi",
@@ -441,7 +518,7 @@
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
-        "Replacement Value" : "use personality_detection;\n\ninsert into update_stats values('${url}','${views}');\n\nmerge into article_stats\n using (select distinct web_url, views from update_stats) update_stats  on article_stats.web_url = update_stats.web_url\n when matched then update set\n   views=update_stats.views\n when not matched then insert\n   values(update_stats.web_url,update_stats.views);\n   \ntruncate table update_stats;",
+        "Replacement Value" : "upsert into article_stats values('${url}',${views})",
         "Evaluation Mode" : "Entire text",
         "Character Set" : "UTF-8",
         "Maximum Buffer Size" : "1 MB",
@@ -707,71 +784,6 @@
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-hive-nar",
-        "group" : "org.apache.nifi",
-        "version" : "1.7.0.3.2.0.0-520"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
-      "identifier" : "c1b8f35a-e000-34be-8d43-4e6c5fcf767e",
-      "name" : "PutHiveQL",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 756.8813256120159,
-        "y" : 392.16502254750856
-      },
-      "properties" : {
-        "statement-delimiter" : ";",
-        "Hive Database Connection Pooling Service" : "5acff37f-862a-3e5d-80e9-6bd967a9b893",
-        "hive-charset" : "UTF-8",
-        "rollback-on-failure" : "false",
-        "hive-batch-size" : "100"
-      },
-      "propertyDescriptors" : {
-        "statement-delimiter" : {
-          "displayName" : "Statement Delimiter",
-          "identifiesControllerService" : false,
-          "name" : "statement-delimiter",
-          "sensitive" : false
-        },
-        "Hive Database Connection Pooling Service" : {
-          "displayName" : "Hive Database Connection Pooling Service",
-          "identifiesControllerService" : true,
-          "name" : "Hive Database Connection Pooling Service",
-          "sensitive" : false
-        },
-        "hive-charset" : {
-          "displayName" : "Character Set",
-          "identifiesControllerService" : false,
-          "name" : "hive-charset",
-          "sensitive" : false
-        },
-        "rollback-on-failure" : {
-          "displayName" : "Rollback On Failure",
-          "identifiesControllerService" : false,
-          "name" : "rollback-on-failure",
-          "sensitive" : false
-        },
-        "hive-batch-size" : {
-          "displayName" : "Batch Size",
-          "identifiesControllerService" : false,
-          "name" : "hive-batch-size",
-          "sensitive" : false
-        }
-      },
-      "runDurationMillis" : 0,
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.hive.PutHiveQL",
-      "yieldDuration" : "1 sec"
-    }, {
       "autoTerminatedRelationships" : [ "failure", "unmatched" ],
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -886,6 +898,83 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.SplitJson",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "1.7.0.3.2.0.0-520"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
+      "identifier" : "b4fdbb0c-b369-39f7-9fd2-aaaee882e4be",
+      "name" : "PutSQL",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 710.9868248220896,
+        "y" : 355.04490964329517
+      },
+      "properties" : {
+        "Support Fragmented Transactions" : "true",
+        "Batch Size" : "100",
+        "Obtain Generated Keys" : "false",
+        "JDBC Connection Pool" : "8c917f61-6e14-3ae6-8628-c2f89ef42800",
+        "rollback-on-failure" : "false"
+      },
+      "propertyDescriptors" : {
+        "Support Fragmented Transactions" : {
+          "displayName" : "Support Fragmented Transactions",
+          "identifiesControllerService" : false,
+          "name" : "Support Fragmented Transactions",
+          "sensitive" : false
+        },
+        "putsql-sql-statement" : {
+          "displayName" : "SQL Statement",
+          "identifiesControllerService" : false,
+          "name" : "putsql-sql-statement",
+          "sensitive" : false
+        },
+        "Transaction Timeout" : {
+          "displayName" : "Transaction Timeout",
+          "identifiesControllerService" : false,
+          "name" : "Transaction Timeout",
+          "sensitive" : false
+        },
+        "Batch Size" : {
+          "displayName" : "Batch Size",
+          "identifiesControllerService" : false,
+          "name" : "Batch Size",
+          "sensitive" : false
+        },
+        "Obtain Generated Keys" : {
+          "displayName" : "Obtain Generated Keys",
+          "identifiesControllerService" : false,
+          "name" : "Obtain Generated Keys",
+          "sensitive" : false
+        },
+        "JDBC Connection Pool" : {
+          "displayName" : "JDBC Connection Pool",
+          "identifiesControllerService" : true,
+          "name" : "JDBC Connection Pool",
+          "sensitive" : false
+        },
+        "rollback-on-failure" : {
+          "displayName" : "Rollback On Failure",
+          "identifiesControllerService" : false,
+          "name" : "rollback-on-failure",
+          "sensitive" : false
+        }
+      },
+      "runDurationMillis" : 0,
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.PutSQL",
       "yieldDuration" : "1 sec"
     } ],
     "remoteProcessGroups" : [ ],
