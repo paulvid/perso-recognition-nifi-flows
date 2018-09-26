@@ -13,13 +13,40 @@
       "destination" : {
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
-        "id" : "b4fdbb0c-b369-39f7-9fd2-aaaee882e4be",
+        "id" : "b91dc41a-99e3-3624-ba1c-03f2bcfa0a25",
+        "name" : "ReplaceText",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
+      "identifier" : "0dee1a34-a907-3c8d-930c-71d6069c0493",
+      "labelIndex" : 1,
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
+        "id" : "e3b2c2f0-c20e-3d56-9151-8d40e3c83fed",
+        "name" : "EvaluateJsonPath",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
+        "id" : "126f40e8-2693-3105-a434-2535be26f46c",
         "name" : "PutSQL",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
-      "identifier" : "d102c4b0-a361-31c8-8254-4dd1329a43f0",
+      "identifier" : "841404e0-2a04-3c03-a033-5e87c18b97db",
       "labelIndex" : 1,
       "name" : "",
       "prioritizers" : [ ],
@@ -29,36 +56,6 @@
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "b91dc41a-99e3-3624-ba1c-03f2bcfa0a25",
         "name" : "ReplaceText",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ {
-        "x" : 1691.57421875,
-        "y" : 238.14700317382812
-      } ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
-        "id" : "b91dc41a-99e3-3624-ba1c-03f2bcfa0a25",
-        "name" : "ReplaceText",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
-      "identifier" : "a5154973-5698-36be-9720-d73f1cffafd7",
-      "labelIndex" : 0,
-      "name" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
-        "id" : "e3b2c2f0-c20e-3d56-9151-8d40e3c83fed",
-        "name" : "EvaluateJsonPath",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -200,6 +197,7 @@
         "group" : "org.apache.nifi",
         "version" : "1.7.0.3.2.0.0-520"
       },
+      "comments" : "",
       "componentType" : "CONTROLLER_SERVICE",
       "controllerServiceApis" : [ {
         "bundle" : {
@@ -316,6 +314,13 @@
           "group" : "org.apache.nifi",
           "version" : "1.7.0.3.2.0.0-520"
         },
+        "type" : "org.apache.nifi.dbcp.hive.HiveDBCPService"
+      }, {
+        "bundle" : {
+          "artifact" : "nifi-hive-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "1.7.0.3.2.0.0-520"
+        },
         "type" : "org.apache.nifi.dbcp.hive.Hive3DBCPService"
       }, {
         "bundle" : {
@@ -324,13 +329,6 @@
           "version" : "1.7.0.3.2.0.0-520"
         },
         "type" : "org.apache.nifi.dbcp.DBCPService"
-      }, {
-        "bundle" : {
-          "artifact" : "nifi-hive-services-api-nar",
-          "group" : "org.apache.nifi",
-          "version" : "1.7.0.3.2.0.0-520"
-        },
-        "type" : "org.apache.nifi.dbcp.hive.HiveDBCPService"
       } ],
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "5acff37f-862a-3e5d-80e9-6bd967a9b893",
@@ -410,6 +408,7 @@
         "group" : "org.apache.nifi",
         "version" : "1.7.0.3.2.0.0-520"
       },
+      "comments" : "",
       "componentType" : "CONTROLLER_SERVICE",
       "controllerServiceApis" : [ {
         "bundle" : {
@@ -492,8 +491,8 @@
     "name" : "Article Popularity",
     "outputPorts" : [ ],
     "position" : {
-      "x" : 485.0,
-      "y" : 357.0
+      "x" : 488.0,
+      "y" : 281.0
     },
     "processGroups" : [ ],
     "processors" : [ {
@@ -513,12 +512,12 @@
       "name" : "ReplaceText",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1537.592826211432,
-        "y" : 366.64598456276724
+        "x" : 1538.0753701567446,
+        "y" : 144.9101599778063
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
-        "Replacement Value" : "upsert into article_stats values('${url}',${views})",
+        "Replacement Value" : "upsert into article_stats values('${url}',${views},'${now()}')",
         "Evaluation Mode" : "Entire text",
         "Character Set" : "UTF-8",
         "Maximum Buffer Size" : "1 MB",
@@ -579,7 +578,7 @@
       "comments" : "",
       "componentType" : "PROCESSOR",
       "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
+      "executionNode" : "PRIMARY",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "ccbc4f15-40d1-3535-97d6-db446bd8dddd",
       "name" : "InvokeHTTP",
@@ -597,7 +596,7 @@
         "etag-max-cache-size" : "10MB",
         "Use Chunked Encoding" : "false",
         "Follow Redirects" : "True",
-        "Remote URL" : "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/7.json?api-key=5d1d6a53702a4924830fc81fd3573c47",
+        "Remote URL" : "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/all-sections/1.json?api-key=5d1d6a53702a4924830fc81fd3573c47",
         "Content-Type" : "${mime.type}",
         "Read Timeout" : "15 secs",
         "Max Length To Put In Attribute" : "256",
@@ -912,16 +911,16 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
-      "identifier" : "b4fdbb0c-b369-39f7-9fd2-aaaee882e4be",
+      "identifier" : "126f40e8-2693-3105-a434-2535be26f46c",
       "name" : "PutSQL",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 710.9868248220896,
-        "y" : 355.04490964329517
+        "x" : 804.6339588417788,
+        "y" : 156.6057324965053
       },
       "properties" : {
-        "Support Fragmented Transactions" : "true",
-        "Batch Size" : "100",
+        "Support Fragmented Transactions" : "false",
+        "Batch Size" : "10",
         "Obtain Generated Keys" : "false",
         "JDBC Connection Pool" : "8c917f61-6e14-3ae6-8628-c2f89ef42800",
         "rollback-on-failure" : "false"
