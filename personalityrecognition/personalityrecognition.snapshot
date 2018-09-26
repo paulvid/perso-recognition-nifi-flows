@@ -13,33 +13,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
-        "id" : "a28955f3-e50b-3a0f-9994-273075324df4",
-        "name" : "EvaluateJsonPath",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
-      "identifier" : "5f985f91-7672-31b4-8868-fb4c8b93b69c",
-      "labelIndex" : 1,
-      "name" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "Response" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
-        "id" : "fcd429c8-18bc-3648-bc7b-76c31838e8bf",
-        "name" : "Call NYT API",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
         "id" : "7558885c-0ce7-3d2d-ac33-b04a5dbc06c9",
         "name" : "PutHDFS",
         "type" : "PROCESSOR"
@@ -56,6 +29,33 @@
         "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
         "id" : "e2f271de-a9b1-3f2d-8edd-c5bd3a4671ba",
         "name" : "Escape Simple Quotes & Update FileName",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
+        "id" : "b87c6b9d-eb98-3fa5-becd-859e29b3fce5",
+        "name" : "PutSQL",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
+      "identifier" : "607f9406-afd1-323d-85ec-09d78f39c8ba",
+      "labelIndex" : 1,
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
+        "id" : "ef59c1cd-c907-3a8b-bed7-d9d36648d2fa",
+        "name" : "Create Phoenix Query",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -202,6 +202,33 @@
       "destination" : {
         "comments" : "",
         "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
+        "id" : "56827f6d-00c6-363a-9695-f72e7cf56b08",
+        "name" : "SplitJson",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
+      "identifier" : "51f96cca-c293-3b56-8f79-b7cc2b520e2a",
+      "labelIndex" : 1,
+      "name" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "Response" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
+        "id" : "fcd429c8-18bc-3648-bc7b-76c31838e8bf",
+        "name" : "Call NYT API",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
         "id" : "a78205da-f152-3d7d-b4fc-c93838523f7e",
         "name" : "Create JSON",
         "type" : "PROCESSOR"
@@ -229,22 +256,22 @@
       "destination" : {
         "comments" : "",
         "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
-        "id" : "3a6f67d4-d0ea-322f-adfa-98350f4bc19f",
-        "name" : "PutSQL",
+        "id" : "a28955f3-e50b-3a0f-9994-273075324df4",
+        "name" : "EvaluateJsonPath",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
-      "identifier" : "e969da65-8c33-37f4-921f-e8ecb1dfb65b",
+      "identifier" : "b06b15fb-3130-3716-92f0-30777982def8",
       "labelIndex" : 1,
       "name" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
+      "selectedRelationships" : [ "split" ],
       "source" : {
         "comments" : "",
         "groupId" : "0c96d836-0166-1000-ffff-ffff9bddb368",
-        "id" : "ef59c1cd-c907-3a8b-bed7-d9d36648d2fa",
-        "name" : "Create Phoenix Query",
+        "id" : "56827f6d-00c6-363a-9695-f72e7cf56b08",
+        "name" : "SplitJson",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -759,8 +786,8 @@
     "name" : "Personality Recognition",
     "outputPorts" : [ ],
     "position" : {
-      "x" : 422.0,
-      "y" : 72.0
+      "x" : -100.0,
+      "y" : 276.0
     },
     "processGroups" : [ ],
     "processors" : [ {
@@ -999,6 +1026,50 @@
       "type" : "org.apache.nifi.processors.standard.ReplaceText",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "original", "failure" ],
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "1.7.0.3.2.0.0-520"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
+      "identifier" : "56827f6d-00c6-363a-9695-f72e7cf56b08",
+      "name" : "SplitJson",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 920.2184204746902,
+        "y" : 161.79941571996972
+      },
+      "properties" : {
+        "Null Value Representation" : "empty string",
+        "JsonPath Expression" : "$.response.docs[*]"
+      },
+      "propertyDescriptors" : {
+        "Null Value Representation" : {
+          "displayName" : "Null Value Representation",
+          "identifiesControllerService" : false,
+          "name" : "Null Value Representation",
+          "sensitive" : false
+        },
+        "JsonPath Expression" : {
+          "displayName" : "JsonPath Expression",
+          "identifiesControllerService" : false,
+          "name" : "JsonPath Expression",
+          "sensitive" : false
+        }
+      },
+      "runDurationMillis" : 0,
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.SplitJson",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "failure" ],
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1052,21 +1123,21 @@
       "name" : "EvaluateJsonPath",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1140.257634823045,
-        "y" : 115.57200622558594
+        "x" : 1130.12506646367,
+        "y" : -162.56382942199707
       },
       "properties" : {
-        "snippet" : "$.response.docs[0].snippet",
+        "snippet" : "$.snippet",
         "Destination" : "flowfile-attribute",
-        "pub_date" : "$.response.docs[0].pub_date",
-        "web_url" : "$.response.docs[0].web_url",
+        "pub_date" : "$.pub_date",
+        "web_url" : "$.web_url",
         "Return Type" : "auto-detect",
         "Null Value Representation" : "empty string",
-        "headline" : "$.response.docs[0].headline.main",
-        "byline" : "$.response.docs[0].byline.original",
+        "headline" : "$.headline.main",
+        "byline" : "$.byline.original",
         "Path Not Found Behavior" : "ignore",
-        "news_desk" : "$.response.docs[0].news_desk",
-        "document_type" : "$.response.docs[0].document_type"
+        "news_desk" : "$.news_desk",
+        "document_type" : "$.document_type"
       },
       "propertyDescriptors" : {
         "snippet" : {
@@ -1159,8 +1230,8 @@
       "name" : "Call NYT API",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 527.0,
-        "y" : 115.57200622558594
+        "x" : 356.1322021484375,
+        "y" : -16.080300331115723
       },
       "properties" : {
         "use-etag" : "false",
@@ -1352,7 +1423,7 @@
         }
       },
       "runDurationMillis" : 0,
-      "schedulingPeriod" : "3 min",
+      "schedulingPeriod" : "15 min",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
@@ -1514,6 +1585,83 @@
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.ReplaceText",
+      "yieldDuration" : "1 sec"
+    }, {
+      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "1.7.0.3.2.0.0-520"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
+      "identifier" : "b87c6b9d-eb98-3fa5-becd-859e29b3fce5",
+      "name" : "PutSQL",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 1171.252626316912,
+        "y" : 985.3157478040471
+      },
+      "properties" : {
+        "Support Fragmented Transactions" : "false",
+        "Batch Size" : "100",
+        "Obtain Generated Keys" : "false",
+        "JDBC Connection Pool" : "e887235d-cf39-3994-b9c7-51e628483942",
+        "rollback-on-failure" : "false"
+      },
+      "propertyDescriptors" : {
+        "Support Fragmented Transactions" : {
+          "displayName" : "Support Fragmented Transactions",
+          "identifiesControllerService" : false,
+          "name" : "Support Fragmented Transactions",
+          "sensitive" : false
+        },
+        "putsql-sql-statement" : {
+          "displayName" : "SQL Statement",
+          "identifiesControllerService" : false,
+          "name" : "putsql-sql-statement",
+          "sensitive" : false
+        },
+        "Transaction Timeout" : {
+          "displayName" : "Transaction Timeout",
+          "identifiesControllerService" : false,
+          "name" : "Transaction Timeout",
+          "sensitive" : false
+        },
+        "Batch Size" : {
+          "displayName" : "Batch Size",
+          "identifiesControllerService" : false,
+          "name" : "Batch Size",
+          "sensitive" : false
+        },
+        "Obtain Generated Keys" : {
+          "displayName" : "Obtain Generated Keys",
+          "identifiesControllerService" : false,
+          "name" : "Obtain Generated Keys",
+          "sensitive" : false
+        },
+        "JDBC Connection Pool" : {
+          "displayName" : "JDBC Connection Pool",
+          "identifiesControllerService" : true,
+          "name" : "JDBC Connection Pool",
+          "sensitive" : false
+        },
+        "rollback-on-failure" : {
+          "displayName" : "Rollback On Failure",
+          "identifiesControllerService" : false,
+          "name" : "rollback-on-failure",
+          "sensitive" : false
+        }
+      },
+      "runDurationMillis" : 0,
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.PutSQL",
       "yieldDuration" : "1 sec"
     }, {
       "autoTerminatedRelationships" : [ "success", "failure" ],
@@ -1714,64 +1862,6 @@
       "autoTerminatedRelationships" : [ ],
       "bulletinLevel" : "WARN",
       "bundle" : {
-        "artifact" : "nifi-websocket-processors-nar",
-        "group" : "org.apache.nifi",
-        "version" : "1.7.0.3.2.0.0-520"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
-      "identifier" : "0643c268-c57d-38de-a766-08e6019edfc5",
-      "name" : "PutWebSocket",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : 2506.979380260846,
-        "y" : 388.1885020219971
-      },
-      "properties" : {
-        "websocket-session-id" : "${websocket.session.id}",
-        "websocket-controller-service-id" : "${websocket.controller.service.id}",
-        "websocket-message-type" : "TEXT",
-        "websocket-endpoint-id" : "${websocket.endpoint.id}"
-      },
-      "propertyDescriptors" : {
-        "websocket-session-id" : {
-          "displayName" : "WebSocket Session Id",
-          "identifiesControllerService" : false,
-          "name" : "websocket-session-id",
-          "sensitive" : false
-        },
-        "websocket-controller-service-id" : {
-          "displayName" : "WebSocket ControllerService Id",
-          "identifiesControllerService" : false,
-          "name" : "websocket-controller-service-id",
-          "sensitive" : false
-        },
-        "websocket-message-type" : {
-          "displayName" : "WebSocket Message Type",
-          "identifiesControllerService" : false,
-          "name" : "websocket-message-type",
-          "sensitive" : false
-        },
-        "websocket-endpoint-id" : {
-          "displayName" : "WebSocket Endpoint Id",
-          "identifiesControllerService" : false,
-          "name" : "websocket-endpoint-id",
-          "sensitive" : false
-        }
-      },
-      "runDurationMillis" : 0,
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.websocket.PutWebSocket",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "bulletinLevel" : "WARN",
-      "bundle" : {
         "artifact" : "nifi-update-attribute-nar",
         "group" : "org.apache.nifi",
         "version" : "1.7.0.3.2.0.0-520"
@@ -1846,10 +1936,10 @@
       "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
+      "autoTerminatedRelationships" : [ ],
       "bulletinLevel" : "WARN",
       "bundle" : {
-        "artifact" : "nifi-standard-nar",
+        "artifact" : "nifi-websocket-processors-nar",
         "group" : "org.apache.nifi",
         "version" : "1.7.0.3.2.0.0-520"
       },
@@ -1858,61 +1948,42 @@
       "concurrentlySchedulableTaskCount" : 1,
       "executionNode" : "ALL",
       "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
-      "identifier" : "3a6f67d4-d0ea-322f-adfa-98350f4bc19f",
-      "name" : "PutSQL",
+      "identifier" : "0643c268-c57d-38de-a766-08e6019edfc5",
+      "name" : "PutWebSocket",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1137.079533995296,
-        "y" : 924.962214628893
+        "x" : 2506.979380260846,
+        "y" : 388.1885020219971
       },
       "properties" : {
-        "Support Fragmented Transactions" : "true",
-        "Batch Size" : "100",
-        "Obtain Generated Keys" : "false",
-        "JDBC Connection Pool" : "e887235d-cf39-3994-b9c7-51e628483942",
-        "rollback-on-failure" : "false"
+        "websocket-session-id" : "${websocket.session.id}",
+        "websocket-controller-service-id" : "${websocket.controller.service.id}",
+        "websocket-message-type" : "TEXT",
+        "websocket-endpoint-id" : "${websocket.endpoint.id}"
       },
       "propertyDescriptors" : {
-        "Support Fragmented Transactions" : {
-          "displayName" : "Support Fragmented Transactions",
+        "websocket-session-id" : {
+          "displayName" : "WebSocket Session Id",
           "identifiesControllerService" : false,
-          "name" : "Support Fragmented Transactions",
+          "name" : "websocket-session-id",
           "sensitive" : false
         },
-        "putsql-sql-statement" : {
-          "displayName" : "SQL Statement",
+        "websocket-controller-service-id" : {
+          "displayName" : "WebSocket ControllerService Id",
           "identifiesControllerService" : false,
-          "name" : "putsql-sql-statement",
+          "name" : "websocket-controller-service-id",
           "sensitive" : false
         },
-        "Transaction Timeout" : {
-          "displayName" : "Transaction Timeout",
+        "websocket-message-type" : {
+          "displayName" : "WebSocket Message Type",
           "identifiesControllerService" : false,
-          "name" : "Transaction Timeout",
+          "name" : "websocket-message-type",
           "sensitive" : false
         },
-        "Batch Size" : {
-          "displayName" : "Batch Size",
+        "websocket-endpoint-id" : {
+          "displayName" : "WebSocket Endpoint Id",
           "identifiesControllerService" : false,
-          "name" : "Batch Size",
-          "sensitive" : false
-        },
-        "Obtain Generated Keys" : {
-          "displayName" : "Obtain Generated Keys",
-          "identifiesControllerService" : false,
-          "name" : "Obtain Generated Keys",
-          "sensitive" : false
-        },
-        "JDBC Connection Pool" : {
-          "displayName" : "JDBC Connection Pool",
-          "identifiesControllerService" : true,
-          "name" : "JDBC Connection Pool",
-          "sensitive" : false
-        },
-        "rollback-on-failure" : {
-          "displayName" : "Rollback On Failure",
-          "identifiesControllerService" : false,
-          "name" : "rollback-on-failure",
+          "name" : "websocket-endpoint-id",
           "sensitive" : false
         }
       },
@@ -1920,7 +1991,7 @@
       "schedulingPeriod" : "0 sec",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
-      "type" : "org.apache.nifi.processors.standard.PutSQL",
+      "type" : "org.apache.nifi.processors.websocket.PutWebSocket",
       "yieldDuration" : "1 sec"
     } ],
     "remoteProcessGroups" : [ ],
