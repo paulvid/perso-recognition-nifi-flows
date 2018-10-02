@@ -531,6 +531,13 @@
       "componentType" : "CONTROLLER_SERVICE",
       "controllerServiceApis" : [ {
         "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "1.7.0.3.2.0.0-520"
+        },
+        "type" : "org.apache.nifi.dbcp.DBCPService"
+      }, {
+        "bundle" : {
           "artifact" : "nifi-hive-services-api-nar",
           "group" : "org.apache.nifi",
           "version" : "1.7.0.3.2.0.0-520"
@@ -543,13 +550,6 @@
           "version" : "1.7.0.3.2.0.0-520"
         },
         "type" : "org.apache.nifi.dbcp.hive.Hive3DBCPService"
-      }, {
-        "bundle" : {
-          "artifact" : "nifi-standard-services-api-nar",
-          "group" : "org.apache.nifi",
-          "version" : "1.7.0.3.2.0.0-520"
-        },
-        "type" : "org.apache.nifi.dbcp.DBCPService"
       } ],
       "groupIdentifier" : "26e0c190-2d42-3be5-9b46-d41e2ebbbe93",
       "identifier" : "343b1553-0483-3b6f-9e4f-4ffaeb5002e4",
@@ -786,8 +786,8 @@
     "name" : "Personality Recognition",
     "outputPorts" : [ ],
     "position" : {
-      "x" : -100.0,
-      "y" : 276.0
+      "x" : 72.0,
+      "y" : -90.0
     },
     "processGroups" : [ ],
     "processors" : [ {
@@ -807,8 +807,8 @@
       "name" : "PublishKafkaRecord_1_0",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 527.0,
-        "y" : 655.6556496591932
+        "x" : 525.4310913085938,
+        "y" : 627.4156594248182
       },
       "properties" : {
         "compression.type" : "none",
@@ -1042,8 +1042,8 @@
       "name" : "SplitJson",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 920.2184204746902,
-        "y" : 161.79941571996972
+        "x" : 534.271826236409,
+        "y" : 169.6438676242666
       },
       "properties" : {
         "Null Value Representation" : "empty string",
@@ -1087,7 +1087,7 @@
       "penaltyDuration" : "30 sec",
       "position" : {
         "x" : 1870.315099040707,
-        "y" : 115.57200622558594
+        "y" : 176.7586669921875
       },
       "properties" : {
         "URL" : "${web_url}"
@@ -1123,8 +1123,8 @@
       "name" : "EvaluateJsonPath",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1130.12506646367,
-        "y" : -162.56382942199707
+        "x" : 1158.365056698045,
+        "y" : 173.17831230163574
       },
       "properties" : {
         "snippet" : "$.snippet",
@@ -1230,8 +1230,8 @@
       "name" : "Call NYT API",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 356.1322021484375,
-        "y" : -16.080300331115723
+        "x" : 545.0281524658203,
+        "y" : -24.730119109153748
       },
       "properties" : {
         "use-etag" : "false",
@@ -1452,7 +1452,7 @@
         "OUTPUT_MODEL_FLAG" : "No",
         "LIWC_PATH" : "/home/nifi/perso-recognition/lib/LIWC.CAT",
         "MODELS_BASE_DIR" : "/home/nifi/perso-recognition/lib/models/",
-        "MODEL_TYPE" : "M5 Regression Tree",
+        "MODEL_TYPE" : "Support Vector Machine with Linear Kernel (SMOreg)",
         "MRC_PATH" : "/home/nifi/perso-recognition/lib/mrc2.dct",
         "INPUT_TYPE" : "Written Language",
         "ARFF_PATH" : "/home/nifi/perso-recognition/lib/attributes-info.arff",
@@ -1531,12 +1531,12 @@
       "name" : "Create Phoenix Query",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1140.257634823045,
-        "y" : 655.6556496591932
+        "x" : 1138.688787166795,
+        "y" : 619.7053933115369
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
-        "Replacement Value" : "upsert into article_evaluation values('${web_url}','${snippet}','${byline}','${pub_date}','${headline}','${document_type}','${news_desk}','${filename}','${now()}','${mairessepersonalityrecognition.extraversion}','${mairessepersonalityrecognition.emotional_stability}','${mairessepersonalityrecognition.agreeableness}','${mairessepersonalityrecognition.conscientiousness}','${mairessepersonalityrecognition.openness_to_experience}')",
+        "Replacement Value" : "upsert into article_evaluation values('${web_url}','${snippet}','${byline}','${pub_date}','${headline}','${document_type}','${news_desk}','${filename}','${now()}',${mairessepersonalityrecognition.extraversion},${mairessepersonalityrecognition.emotional_stability},${mairessepersonalityrecognition.agreeableness},${mairessepersonalityrecognition.conscientiousness},${mairessepersonalityrecognition.openness_to_experience})",
         "Evaluation Mode" : "Entire text",
         "Character Set" : "UTF-8",
         "Maximum Buffer Size" : "1 MB",
@@ -1603,8 +1603,8 @@
       "name" : "PutSQL",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1171.252626316912,
-        "y" : 985.3157478040471
+        "x" : 1141.4436663559745,
+        "y" : 829.9958625501408
       },
       "properties" : {
         "Support Fragmented Transactions" : "false",
@@ -1680,8 +1680,8 @@
       "name" : "PutHDFS",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1870.315099040707,
-        "y" : 915.502255931286
+        "x" : 1868.746251384457,
+        "y" : 836.118222728161
       },
       "properties" : {
         "Hadoop Configuration Resources" : "/home/nifi/hdpconf/core-site.xml,/home/nifi/hdpconf/hdfs-site.xml",
@@ -1805,8 +1805,8 @@
       "name" : "Escape Simple Quotes & Update FileName",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1870.315099040707,
-        "y" : 655.6556496591932
+        "x" : 1868.7461293141446,
+        "y" : 618.0023293466932
       },
       "properties" : {
         "snippet" : "${snippet:replaceAll('\\'',''):replaceAll('\\\"',''):replaceAll(';','')}",
