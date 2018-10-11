@@ -1,5 +1,5 @@
 flows:
   863d586a-0b35-4eaf-a585-00da19465986: {ver: 1, file: web_services.snapshot}
-  f8b79cdd-1c9c-432a-9bd5-db93a390e836: {ver: 6, file: personalityrecognition.snapshot}
+  f8b79cdd-1c9c-432a-9bd5-db93a390e836: {ver: 7, file: personalityrecognition.snapshot}
 layoutVer: 1
 bucketId: 4f5193d1-9838-47a8-a0a7-e8a31fb1f15b
