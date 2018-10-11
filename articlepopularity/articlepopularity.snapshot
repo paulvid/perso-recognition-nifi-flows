@@ -14,7 +14,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "b91dc41a-99e3-3624-ba1c-03f2bcfa0a25",
-        "name" : "ReplaceText",
+        "name" : "Create Phoenix Query",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -28,7 +28,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "e3b2c2f0-c20e-3d56-9151-8d40e3c83fed",
-        "name" : "EvaluateJsonPath",
+        "name" : "Extract Relevant Attributes",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -41,7 +41,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "126f40e8-2693-3105-a434-2535be26f46c",
-        "name" : "PutSQL",
+        "name" : "Run Phoenix Upsert SQL",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -55,7 +55,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "b91dc41a-99e3-3624-ba1c-03f2bcfa0a25",
-        "name" : "ReplaceText",
+        "name" : "Create Phoenix Query",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -68,7 +68,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "e3b2c2f0-c20e-3d56-9151-8d40e3c83fed",
-        "name" : "EvaluateJsonPath",
+        "name" : "Extract Relevant Attributes",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -82,7 +82,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "ef437831-3f29-3c3c-8571-f6174b2e0a0b",
-        "name" : "SplitJson",
+        "name" : "Split Response into 10 flow files",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -95,7 +95,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "ef437831-3f29-3c3c-8571-f6174b2e0a0b",
-        "name" : "SplitJson",
+        "name" : "Split Response into 10 flow files",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -109,7 +109,7 @@
         "comments" : "",
         "groupId" : "0d2494a5-0166-1000-ffff-ffff80484369",
         "id" : "ccbc4f15-40d1-3535-97d6-db446bd8dddd",
-        "name" : "InvokeHTTP",
+        "name" : "Call Most Popular NYT API",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -491,8 +491,8 @@
     "name" : "Article Popularity",
     "outputPorts" : [ ],
     "position" : {
-      "x" : 488.0,
-      "y" : 281.0
+      "x" : -21.3277587890625,
+      "y" : 199.4080352783203
     },
     "processGroups" : [ ],
     "processors" : [ {
@@ -509,11 +509,11 @@
       "executionNode" : "ALL",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "b91dc41a-99e3-3624-ba1c-03f2bcfa0a25",
-      "name" : "ReplaceText",
+      "name" : "Create Phoenix Query",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1538.0753701567446,
-        "y" : 144.9101599778063
+        "x" : 931.9235426730897,
+        "y" : 181.3430403211032
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
@@ -581,11 +581,11 @@
       "executionNode" : "PRIMARY",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "ccbc4f15-40d1-3535-97d6-db446bd8dddd",
-      "name" : "InvokeHTTP",
+      "name" : "Call Most Popular NYT API",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 140.77247589585727,
-        "y" : -130.18240376797297
+        "x" : 319.32159393784946,
+        "y" : -223.04587575283625
       },
       "properties" : {
         "use-etag" : "false",
@@ -796,11 +796,11 @@
       "executionNode" : "ALL",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "e3b2c2f0-c20e-3d56-9151-8d40e3c83fed",
-      "name" : "EvaluateJsonPath",
+      "name" : "Extract Relevant Attributes",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 1537.592826211432,
-        "y" : -130.18240376797297
+        "x" : 319.32159393784946,
+        "y" : 181.3430403211032
       },
       "properties" : {
         "Destination" : "flowfile-attribute",
@@ -868,11 +868,11 @@
       "executionNode" : "ALL",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "ef437831-3f29-3c3c-8571-f6174b2e0a0b",
-      "name" : "SplitJson",
+      "name" : "Split Response into 10 flow files",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 802.1944119310135,
-        "y" : -130.18240376797297
+        "x" : 319.32159393784946,
+        "y" : -27.625887706351506
       },
       "properties" : {
         "Null Value Representation" : "empty string",
@@ -912,11 +912,11 @@
       "executionNode" : "ALL",
       "groupIdentifier" : "8205b671-5ce1-3da6-b924-56494b2bd19d",
       "identifier" : "126f40e8-2693-3105-a434-2535be26f46c",
-      "name" : "PutSQL",
+      "name" : "Run Phoenix Upsert SQL",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 804.6339588417788,
-        "y" : 156.6057324965053
+        "x" : 931.9235426730897,
+        "y" : -27.625887706351506
       },
       "properties" : {
         "Support Fragmented Transactions" : "false",
