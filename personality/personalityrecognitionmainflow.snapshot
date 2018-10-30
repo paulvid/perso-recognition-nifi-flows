@@ -717,8 +717,8 @@
     "name" : "Personality Recognition",
     "outputPorts" : [ ],
     "position" : {
-      "x" : 91.0,
-      "y" : 74.0
+      "x" : 102.0,
+      "y" : 49.0
     },
     "processGroups" : [ ],
     "processors" : [ {
@@ -930,7 +930,7 @@
         "Compression codec" : "NONE",
         "Kerberos Relogin Period" : "4 hours",
         "Directory" : "/personalityrecognition",
-        "Conflict Resolution Strategy" : "fail"
+        "Conflict Resolution Strategy" : "ignore"
       },
       "propertyDescriptors" : {
         "Permissions umask" : {
@@ -1284,7 +1284,7 @@
         }
       },
       "runDurationMillis" : 0,
-      "schedulingPeriod" : "2 min",
+      "schedulingPeriod" : "15 min",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
@@ -1732,7 +1732,7 @@
         "OUTPUT_MODEL_FLAG" : "No",
         "LIWC_PATH" : "/home/nifi/perso-recognition/lib/LIWC.CAT",
         "MODELS_BASE_DIR" : "/home/nifi/perso-recognition/lib/models/",
-        "MODEL_TYPE" : "M5 Regression Tree",
+        "MODEL_TYPE" : "Support Vector Machine with Linear Kernel (SMOreg)",
         "MRC_PATH" : "/home/nifi/perso-recognition/lib/mrc2.dct",
         "INPUT_TYPE" : "Written Language",
         "ARFF_PATH" : "/home/nifi/perso-recognition/lib/attributes-info.arff",
