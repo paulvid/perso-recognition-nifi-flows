@@ -232,8 +232,8 @@
     "name" : "Article Popularity",
     "outputPorts" : [ ],
     "position" : {
-      "x" : 604.0,
-      "y" : 65.0
+      "x" : 576.0,
+      "y" : 52.0
     },
     "processGroups" : [ ],
     "processors" : [ {
@@ -711,7 +711,7 @@
         }
       },
       "runDurationMillis" : 0,
-      "schedulingPeriod" : "2 min",
+      "schedulingPeriod" : "15 min",
       "schedulingStrategy" : "TIMER_DRIVEN",
       "style" : { },
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
