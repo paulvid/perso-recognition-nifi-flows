@@ -35,39 +35,6 @@
     }, {
       "backPressureDataSizeThreshold" : "1 GB",
       "backPressureObjectThreshold" : 10000,
-      "bends" : [ {
-        "x" : 2530.077894395663,
-        "y" : -392.7204949508383
-      }, {
-        "x" : 2530.077894395663,
-        "y" : -342.7204949508383
-      } ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "c4c1fd64-0166-1000-ffff-ffffbec43805",
-        "id" : "a6823ad5-2a19-3908-bf5e-484cec7e8e85",
-        "name" : "Run Query",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "fcd8350e-7147-32d6-824a-a8bcf40a5508",
-      "identifier" : "06e317f3-a83a-3ec3-a42c-e83673e2da3f",
-      "labelIndex" : 1,
-      "name" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "c4c1fd64-0166-1000-ffff-ffffbec43805",
-        "id" : "a6823ad5-2a19-3908-bf5e-484cec7e8e85",
-        "name" : "Run Query",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
       "bends" : [ ],
       "componentType" : "CONNECTION",
       "destination" : {
@@ -353,7 +320,7 @@
       "type" : "org.apache.nifi.processors.standard.SplitJson",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ "success", "retry" ],
+      "autoTerminatedRelationships" : [ "success", "failure", "retry" ],
       "bulletinLevel" : "WARN",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
