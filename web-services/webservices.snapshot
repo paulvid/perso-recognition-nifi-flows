@@ -14,8 +14,8 @@
     "name" : "Web Services",
     "outputPorts" : [ ],
     "position" : {
-      "x" : 570.0,
-      "y" : 371.0
+      "x" : 312.0,
+      "y" : 320.0
     },
     "processGroups" : [ {
       "comments" : "",
@@ -813,8 +813,8 @@
       "name" : "ViewsByDate",
       "outputPorts" : [ ],
       "position" : {
-        "x" : 549.0,
-        "y" : 409.0
+        "x" : 328.0,
+        "y" : 294.0
       },
       "processGroups" : [ ],
       "processors" : [ {
@@ -1400,8 +1400,8 @@
       "name" : "Article Search",
       "outputPorts" : [ ],
       "position" : {
-        "x" : 1073.0,
-        "y" : 438.0
+        "x" : 875.0,
+        "y" : 292.0
       },
       "processGroups" : [ ],
       "processors" : [ {
@@ -2282,7 +2282,7 @@
       "outputPorts" : [ ],
       "position" : {
         "x" : 874.0,
-        "y" : 97.0
+        "y" : 82.0
       },
       "processGroups" : [ ],
       "processors" : [ {
